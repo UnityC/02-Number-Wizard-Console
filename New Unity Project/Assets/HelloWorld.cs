@@ -10,7 +10,12 @@ public class HelloWorld : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+        startGame();
+    }
+
+    void startGame()
+    {
         Debug.Log("Welcome to Number Wizard!");
         Debug.Log("Pick a number, don't tell me yet");
         Debug.Log($"Highest number you can pick is <b>{max}</b>");
@@ -30,7 +35,7 @@ public class HelloWorld : MonoBehaviour
             Guess(min, max);
         }
         else if (Input.GetKeyUp(KeyCode.Return)) {         
-            Debug.Log($"Your number is {guess}");
+            Debug.Log($"Your number is <b><size=20><color=green>{guess}</color></size></b>");
         }
     }
 
@@ -39,11 +44,11 @@ public class HelloWorld : MonoBehaviour
         guess = (min + max) / 2;
 
         if (max-min == 2) {
-            Debug.Log($"Your number is {guess}");
+            Debug.Log($"Your number is <b><color=green>{guess}</color></b>");
             return;
         }
         
-        Debug.Log($"Is your number {guess}?");
-        Debug.Log($"Push Up arrow key if higer, Push Down arrow key if it is lower");
+        Debug.Log($"Is your number higer or lower than {guess}?");
+        Debug.Log($"Press 'Up arrow' key if higher, Press 'Down arrow' key if lower, press Enter if it is equal!");
     }
 }
